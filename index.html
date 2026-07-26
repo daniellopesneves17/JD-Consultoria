@@ -558,6 +558,11 @@
       line-height: 1.08;
     }
 
+    .hero-photo-label span {
+      display: block;
+      white-space: nowrap;
+    }
+
     .hero-animate {
       opacity: 0;
       transform: translateY(20px);
@@ -979,6 +984,10 @@
       line-height: 1.45;
     }
 
+    .contact-item a[href^="https://wa.me"] {
+      white-space: nowrap;
+    }
+
     .socials {
       display: flex;
       gap: 12px;
@@ -1038,7 +1047,7 @@
       position: absolute;
       right: 0;
       bottom: 72px;
-      width: 238px;
+      width: min(330px, calc(100vw - 32px));
       padding: 10px;
       border: 1px solid rgba(255,255,255,0.16);
       background: var(--blue-deep);
@@ -1061,8 +1070,9 @@
       gap: 10px;
       padding: 12px;
       color: var(--white);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .whatsapp-float-menu a:hover,
@@ -1076,6 +1086,10 @@
       flex: 0 0 auto;
       color: #25D366;
       stroke: currentColor;
+    }
+
+    .whatsapp-contact-line {
+      white-space: nowrap;
     }
 
     @keyframes whatsapp-pulse {
@@ -1570,6 +1584,10 @@
         font-size: clamp(28px, 10vw, 36px);
       }
 
+      .hero-photo-label {
+        font-size: 23px;
+      }
+
       .hero-inner {
         padding-top: 92px;
       }
@@ -1674,7 +1692,7 @@
       <div class="container hero-inner">
         <div class="hero-copy">
           <div class="eyebrow hero-badge hero-animate">✦ Corretora autorizada</div>
-          <h1 class="hero-animate">Seu plano de saúde com quem <span>entende</span> do assunto.</h1>
+          <h1 class="hero-animate">Seu Plano de Saúde com quem <span>entende</span> do assunto.</h1>
           <p class="hero-subtitle hero-animate">Consultoria especializada em planos individuais, familiares e empresariais. Atendimento humano, propostas comparadas e a melhor opção para o seu bolso.</p>
           <div class="hero-actions hero-animate">
             <a class="btn btn-primary" href="#contato">Quero meu plano agora →</a>
@@ -1688,7 +1706,11 @@
           </div>
         </div>
         <div class="hero-photo hero-animate" aria-label="Consultores da JD Consultoria em atendimento">
-          <div class="hero-photo-label">Atendimento consultivo, humano e transparente</div>
+          <div class="hero-photo-label">
+            <span>Atendimento com</span>
+            <span>Empatia, Humanidade</span>
+            <span>e Transparência</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1726,7 +1748,7 @@
           <div class="eyebrow">Quem somos</div>
           <h2>A JD Consultoria nasce da crença de que saúde não é luxo: é direito.</h2>
           <p>Somos corretores especializados em saúde suplementar. Nosso trabalho é simples: ouvir você, entender sua realidade e encontrar o plano certo sem empurrar o mais caro, sem enrolação.</p>
-          <p class="about-callout">Atendemos pessoas físicas, famílias, MEIs e empresas de todos os portes, sempre com propostas de múltiplas operadoras comparadas lado a lado.</p>
+          <p class="about-callout">Atendemos <strong>PESSOAS FÍSICAS, FAMÍLIAS, MEI E EMPRESAS</strong> de todos os portes, sempre com propostas de múltiplas operadoras comparadas.</p>
           <a class="btn btn-secondary" href="#contato">Fale com um consultor →</a>
         </div>
       </div>
@@ -1773,7 +1795,7 @@
               </svg>
             </div>
             <h3>Para todos os perfis</h3>
-            <p>Atendemos pessoas físicas, MEIs, pequenas e grandes empresas com soluções sob medida.</p>
+            <p>Atendemos pessoas físicas, MEI, pequenas e grandes empresas com soluções sob medida.</p>
           </article>
           <article class="benefit-card reveal-card">
             <div class="benefit-icon">
@@ -1800,7 +1822,7 @@
             <ul class="contact-list">
               <li class="contact-item">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 19.2 4 20l.8-3.4A8.4 8.4 0 1 1 7.5 19.2Z" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                <div><span>WhatsApp</span><a href="https://wa.me/5521985144672">(21) 98514-4672</a><a href="https://wa.me/5521964485351">(21) 96448-5351</a></div>
+                <div><span>WhatsApp</span><a href="https://wa.me/5521985144672">Daniele Eduardo: (21) 98514-4672</a><a href="https://wa.me/5521964485351">Jefferson Eduardo: (21) 96448-5351</a></div>
               </li>
               <li class="contact-item">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke-width="1.7" stroke-linejoin="round"/></svg>
@@ -1907,8 +1929,8 @@
         <div>
           <h3>Contato</h3>
           <ul>
-            <li>WhatsApp: (21) 98514-4672</li>
-            <li>WhatsApp: (21) 96448-5351</li>
+            <li class="whatsapp-contact-line">Daniele Eduardo: (21) 98514-4672</li>
+            <li class="whatsapp-contact-line">Jefferson Eduardo: (21) 96448-5351</li>
             <li>E-mail: jdconsultoria.planos@gmail.com</li>
             <li>Instagram: @jd_planosdesaude</li>
             <li>Facebook: JD Consultoria e Vendas em Plano de Saúde</li>
@@ -1934,13 +1956,13 @@
 
   <div class="whatsapp-float" id="whatsappFloat">
     <div class="whatsapp-float-menu" id="whatsappFloatMenu" aria-hidden="true">
-      <a href="https://wa.me/5521985144672" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/5521985144672" target="_blank" rel="noopener noreferrer" aria-label="Falar com Daniele Eduardo no WhatsApp">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 19.2 4 20l.8-3.4A8.4 8.4 0 1 1 7.5 19.2Z" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        (21) 98514-4672
+        Daniele Eduardo: (21) 98514-4672
       </a>
-      <a href="https://wa.me/5521964485351" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/5521964485351" target="_blank" rel="noopener noreferrer" aria-label="Falar com Jefferson Eduardo no WhatsApp">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.5 19.2 4 20l.8-3.4A8.4 8.4 0 1 1 7.5 19.2Z" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        (21) 96448-5351
+        Jefferson Eduardo: (21) 96448-5351
       </a>
     </div>
     <button class="whatsapp-float-button" id="whatsappFloatButton" type="button" aria-label="Abrir contatos do WhatsApp" aria-expanded="false" aria-controls="whatsappFloatMenu">
