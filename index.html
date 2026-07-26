@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="JD Consultoria - Planos de saúde e dentários com consultoria gratuita. Comparamos as melhores operadoras para você.">
   <title>JD Consultoria | Planos de Saúde e Dentários</title>
+  <link rel="icon" type="image/png" href="assets/images/logo-jd-consultoria.png?v=2">
+  <link rel="apple-touch-icon" href="assets/images/logo-jd-consultoria.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -196,17 +198,10 @@
     }
 
     .loader-logo {
-      color: var(--white-off);
-      font-family: var(--font-display);
-      font-size: clamp(30px, 5vw, 40px);
-      font-weight: 700;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, var(--white-off) 0%, var(--white-off) 30%, var(--gold) 50%, var(--white) 58%, var(--white-off) 70%, var(--white-off) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 2s linear infinite;
+      width: clamp(160px, 22vw, 220px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.32));
     }
 
     .loader-bar-track {
@@ -280,6 +275,14 @@
       font-size: 23px;
       font-weight: 700;
       white-space: nowrap;
+    }
+
+    .logo-image {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.28));
     }
 
     .logo-dot {
@@ -1558,6 +1561,12 @@
         font-size: 20px;
       }
 
+      .logo-image {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+      }
+
       .hero h1 {
         font-size: clamp(28px, 10vw, 36px);
       }
@@ -1616,7 +1625,7 @@
 <body>
   <div id="loader">
     <div class="loader-inner">
-      <div class="loader-logo">JD Consultoria</div>
+      <img class="loader-logo" src="assets/images/logo-jd-consultoria.png?v=2" alt="JD Consultoria">
       <div class="loader-bar-track">
         <div class="loader-bar-fill"></div>
       </div>
@@ -1627,7 +1636,7 @@
   <header class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
     <div class="container nav-inner">
       <a class="logo" href="#inicio" aria-label="Ir para o início">
-        <span class="logo-dot" aria-hidden="true">•</span>
+        <img class="logo-image" src="assets/images/logo-jd-consultoria.png?v=2" alt="" aria-hidden="true">
         <span>JD Consultoria</span>
       </a>
       <nav class="nav-links" aria-label="Links da página">
@@ -1647,7 +1656,7 @@
   <aside class="drawer" id="mobileDrawer" aria-label="Menu mobile" aria-hidden="true">
     <div class="drawer-head">
       <a class="logo" href="#inicio">
-        <span class="logo-dot" aria-hidden="true">•</span>
+        <img class="logo-image" src="assets/images/logo-jd-consultoria.png?v=2" alt="" aria-hidden="true">
         <span>JD Consultoria</span>
       </a>
       <button class="drawer-close" type="button" id="drawerClose" aria-label="Fechar menu">×</button>
