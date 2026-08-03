@@ -1461,13 +1461,24 @@
     }
 
     @media (max-width: 768px) {
+      :root {
+        --section-pad: 68px;
+      }
+
       .container {
         width: min(100% - 32px, var(--container));
+      }
+
+      .section-heading,
+      .contact-head {
+        margin-bottom: 38px;
       }
 
       .hero-inner {
         align-items: stretch;
         gap: 0;
+        min-height: auto;
+        padding-bottom: 48px;
       }
 
       .hero-copy {
@@ -1492,6 +1503,10 @@
         width: 100%;
         max-width: none;
         margin-top: 28px;
+      }
+
+      .hero-photo-label span {
+        white-space: normal;
       }
 
       .hero-actions {
@@ -1552,6 +1567,28 @@
         padding: 28px;
       }
 
+      .contact-grid > *,
+      .contact-item > div,
+      .footer-grid > * {
+        min-width: 0;
+      }
+
+      .contact-item a,
+      .footer li,
+      .footer a {
+        overflow-wrap: anywhere;
+      }
+
+      .contact-item a[href^="https://wa.me"],
+      .whatsapp-contact-line,
+      .whatsapp-float-menu a {
+        white-space: normal;
+      }
+
+      .whatsapp-float-menu a {
+        line-height: 1.4;
+      }
+
       .footer-grid,
       .footer-bottom {
         grid-template-columns: 1fr;
@@ -1563,12 +1600,17 @@
     }
 
     @media (max-width: 480px) {
+      :root {
+        --section-pad: 58px;
+      }
+
       .container {
         width: min(100% - 26px, var(--container));
       }
 
       .nav-inner {
         min-height: 68px;
+        gap: 14px;
       }
 
       .logo {
@@ -1586,7 +1628,10 @@
       }
 
       .hero-photo-label {
-        font-size: 23px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        font-size: 22px;
       }
 
       .hero-inner {
@@ -1599,6 +1644,38 @@
       .contact-card,
       .quote-form {
         padding: 24px;
+      }
+
+      .drawer {
+        width: min(320px, 100vw);
+        padding: 22px;
+      }
+
+      .drawer-head {
+        gap: 12px;
+      }
+
+      .contact-item {
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .contact-item strong,
+      .contact-item a {
+        font-size: 15px;
+      }
+
+      .whatsapp-float-menu {
+        width: calc(100vw - 26px);
+      }
+
+      .whatsapp-float-menu a {
+        padding: 11px 9px;
+        font-size: 12px;
+      }
+
+      .footer {
+        padding-top: 56px;
       }
 
       .hero-photo {
@@ -1614,6 +1691,77 @@
       .legal-links {
         display: grid;
         gap: 8px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container {
+        width: calc(100% - 20px);
+      }
+
+      .logo {
+        gap: 8px;
+        font-size: 17px;
+      }
+
+      .logo-image {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+      }
+
+      .menu-toggle,
+      .drawer-close {
+        width: 42px;
+        height: 42px;
+      }
+
+      .drawer {
+        padding: 18px;
+      }
+
+      .hero-inner {
+        padding-top: 84px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero-photo {
+        min-height: 330px;
+      }
+
+      .hero-photo-label {
+        font-size: 20px;
+      }
+
+      .btn,
+      .submit-btn {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .about-visual,
+      .benefit-card,
+      .contact-card,
+      .quote-form {
+        padding: 20px;
+      }
+
+      .whatsapp-float {
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .whatsapp-float-button {
+        width: 56px;
+        height: 56px;
+      }
+
+      .whatsapp-float-menu {
+        bottom: 66px;
+        width: calc(100vw - 20px);
       }
     }
 
