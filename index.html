@@ -612,8 +612,12 @@
       width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
+      overscroll-behavior-x: contain;
       scroll-behavior: auto;
       scrollbar-width: none;
+      touch-action: pan-x pan-y;
+      -webkit-overflow-scrolling: touch;
+      user-select: none;
       cursor: grab;
     }
 
@@ -2152,6 +2156,21 @@
     let operatorsPaused = false;
     let operatorsLastFrame = performance.now();
     let operatorsPosition = operatorsCarousel.scrollLeft;
+    let operatorsTouchActive = false;
+    let operatorsTouchScrolling = false;
+    let operatorsResumeTimer = null;
+
+    const scheduleOperatorsResume = () => {
+      window.clearTimeout(operatorsResumeTimer);
+      operatorsResumeTimer = window.setTimeout(() => {
+        if (operatorsTouchActive) return;
+        operatorsPosition = operatorsCarousel.scrollLeft;
+        normalizeOperatorsScroll();
+        operatorsLastFrame = performance.now();
+        operatorsTouchScrolling = false;
+        operatorsPaused = false;
+      }, 180);
+    };
 
     const normalizeOperatorsScroll = () => {
       const loopWidth = operatorsCarousel.scrollWidth / 2;
@@ -2180,6 +2199,27 @@
     operatorsCarousel.addEventListener("mouseleave", () => {
       operatorsPaused = false;
     });
+
+    operatorsCarousel.addEventListener("touchstart", () => {
+      operatorsTouchActive = true;
+      operatorsTouchScrolling = true;
+      operatorsPaused = true;
+      window.clearTimeout(operatorsResumeTimer);
+    }, { passive: true });
+
+    operatorsCarousel.addEventListener("scroll", () => {
+      if (!operatorsTouchScrolling) return;
+      operatorsPosition = operatorsCarousel.scrollLeft;
+      scheduleOperatorsResume();
+    }, { passive: true });
+
+    const finishOperatorsTouch = () => {
+      operatorsTouchActive = false;
+      scheduleOperatorsResume();
+    };
+
+    operatorsCarousel.addEventListener("touchend", finishOperatorsTouch, { passive: true });
+    operatorsCarousel.addEventListener("touchcancel", finishOperatorsTouch, { passive: true });
 
     operatorsCarousel.addEventListener("wheel", (event) => {
       if (!event.shiftKey) return;
@@ -2268,6 +2308,9 @@
     const stopOperatorsDrag = () => {
       isDraggingOperators = false;
       operatorsCarousel.classList.remove("is-dragging");
+      operatorsPosition = operatorsCarousel.scrollLeft;
+      operatorsLastFrame = performance.now();
+      operatorsPaused = false;
     };
 
     operatorsCarousel.addEventListener("pointerup", stopOperatorsDrag);
